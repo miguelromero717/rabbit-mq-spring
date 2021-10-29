@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  db_queue:
+    image: postgres:12.7
+    container_name: "db_queue"
+    env_file:
+      - ./conf/db/.env
+    ports:
+      - "5455:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  queue_manager:
+    image: rabbitmq:3-management
+    container_name: "queue"
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    volumes:
+      - queue-data:/var/lib/rabbitmq/
+      - queue-log:/var/log/rabbitmq
+    networks:
+      - backend
+
+volumes:
+  db-data:
+  queue-data:
+  queue-log:
+
+networks:
+  backend:
+    driver: bridge
