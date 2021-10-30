@@ -4,8 +4,8 @@ This is a simple example to communicate two services through RabbitMQ.
 
 You can run the project on local and over Docker.
 
-[Publish Microservice](publish-ms/HELP.md)
-[Subscribe Microservice](subscribe-ms/HELP.md)
+[Publish Microservice](publish-ms/README.md)
+[Subscribe Microservice](subscribe-ms/README.md)
 
 ## Requirements
 
