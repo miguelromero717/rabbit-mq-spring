@@ -8,7 +8,7 @@ spring:
       - dev
   rabbitmq:
     host: localhost
-    port: 5673
+    port: 5672
     username: guest
     password: guest
 
@@ -22,7 +22,7 @@ spring:
     activate:
       on-profile: docker
   rabbitmq:
-    host: queue
-    port: 5673
+    host: queue_manager
+    port: 5672
     username: guest
     password: guest

@@ -13,7 +13,7 @@ spring:
     password: p0stgr3s*
   rabbitmq:
     host: localhost
-    port: 5673
+    port: 5672
     username: guest
     password: guest
   jpa:
@@ -40,6 +40,6 @@ spring:
       ddl-auto: update
   rabbitmq:
     host: queue_manager
-    port: 5673
+    port: 5672
     username: guest
     password: guest

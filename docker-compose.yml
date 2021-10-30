@@ -15,13 +15,31 @@ services:
 
   queue_manager:
     image: rabbitmq:3-management
-    container_name: "queue"
+    container_name: "queue_manager"
     ports:
-      - "5673:5672"
-      - "15673:15672"
+      - "5672:5672"
+      - "15672:15672"
     volumes:
       - queue-data:/var/lib/rabbitmq/
       - queue-log:/var/log/rabbitmq
+    networks:
+      - backend
+
+  publish_ms:
+    build:
+      context: ./publish-ms
+      dockerfile: Dockerfile
+    ports:
+      - "8880:8080"
+    networks:
+      - backend
+
+  subscribe-ms:
+    build:
+      context: ./subscribe-ms
+      dockerfile: Dockerfile
+    ports:
+      - "8881:8081"
     networks:
       - backend
 
